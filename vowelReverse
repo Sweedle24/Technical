@@ -1,0 +1,67 @@
+
+public class reversevowels {
+
+	
+	/*public static String reverseString(String str) {
+		char arr[]=str.toCharArray();
+		for(int i=0,j=arr.length-1;i<arr.length/2;i++,j--) {
+			char temp=arr[i];
+			arr[i]=arr[j];
+			arr[j]=temp;
+		}
+		return new String(arr);
+	}*/
+	/*public static String reverseString(String str) {
+		return new String(new StringBuffer(str).reverse());
+	}
+		
+		public static void main(String[] args) {
+			String str=(new java.util.Scanner(System.in)).nextLine();
+			if(str.contentEquals(reverseString(str)))
+				System.out.println("palindrome");
+			else
+				System.out.println("not a palindrome");
+		}
+	public static boolean isVowel(char ch) {
+		return "aeiouAEIOU".contains(""+ch);
+			
+	}
+	
+	public static void main(String args[]) {
+		String str=(new java.util.Scanner(System.in)).nextLine();
+		String vowelString=" ";
+		for(int index=0;index<str.length();index++)
+			if(isVowel(str.charAt(index)))
+				vowelString+=str.charAt(index);
+		vowelString=reverseString(vowelString);
+		for(int index=0,i=0;index<str.length();index++) {
+			if(isVowel(str.charAt(index)))
+				System.out.println(vowelString.charAt(i++));
+			else
+				System.out.println(vowelString.charAt(index));
+		}
+	}*/
+	
+	public static boolean isVowel(char ch) {
+		return "aeiouAEIOU".contains(""+ch);
+	}
+	
+	public static void main(String args[]) {
+		String str =new java.util.Scanner(System.in).nextLine();
+		char[] arr=str.toCharArray();
+		for(int i=0,j=arr.length-1;j>i;i++,j--) {
+			if(isVowel(arr[i])&& isVowel(arr[j])){
+				char temp=arr[i];
+				arr[i]=arr[j];
+				arr[j]=temp;
+			}
+			else if(isVowel(arr[i]))
+				i--;
+			else if(isVowel(arr[j]))
+				j++;     				//program pending...
+		}
+		System.out.println(new String(arr));
+	}
+}
+
+
